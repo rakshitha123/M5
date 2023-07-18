@@ -7,6 +7,8 @@ source(file.path(BASE_DIR, "configs", "configs.R"))
 
 # A wrapper function to run the full modelling framework used for the competition solution
 run_model <- function(lag){
+  unlink(output_file_name)
+  
   # Obtain forecasts for all clusters
   for(clus in 1:length(all_clusters)){
     print(paste0("Starting cluster ", clus))
@@ -55,8 +57,10 @@ run_model <- function(lag){
   final_submission_results <- rbind(final_validation_results, final_evaluation_results)
   
   write.csv(final_submission_results, file.path(BASE_DIR, "results", "final_submision.csv"), row.names = FALSE)
+  
+  print(paste0("Results were written into ", file.path(BASE_DIR, "results")))
 }
 
 
 # Get forecasts
-run_model(20) # Change the lags as required. For the solution, I used 400 lags.
+run_model(10) # Change the lags as required. For the solution, I used 400 lags.

@@ -41,3 +41,5 @@ date_info$event_name_1_converted <- sapply(date_info$event_name_1, get_event_dat
 date_info$event_name_2_converted <- sapply(date_info$event_name_2, get_event_data, event_name_two_vals)
 date_info$event_type_1_converted <- sapply(date_info$event_type_1, get_event_data, event_type_one_vals)
 date_info$event_type_2_converted <- sapply(date_info$event_type_2, get_event_data, event_type_two_vals)
+
+options(warn=-1)
