@@ -16,6 +16,11 @@ if(mode == "demo"){
   sales_dataset <- read.csv(file.path(BASE_DIR, "dataset", "demo_data", "demo_sales_train_evaluation.csv"), header = TRUE)
 }else{
   all_clusters <- readLines(file.path(BASE_DIR, "dataset", "m5_clusters_70.txt"))
+  
+  if (file.exists(file.path(BASE_DIR, "dataset", "sales_train_evaluation.zip"))){
+    unzip(file.path(BASE_DIR, "dataset", "sales_train_evaluation.zip"), exdir = file.path(BASE_DIR, "dataset"))
+    file.remove(file.path(BASE_DIR, "dataset", "sales_train_evaluation.zip"))
+  }
   sales_dataset <- read.csv(file.path(BASE_DIR, "dataset", "sales_train_evaluation.csv"), header = TRUE)
 }
 
